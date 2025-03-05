@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turkish Food Menu</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #f6daaf;
+            padding-bottom: 100px; 
+            margin: 0;
+        }
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw; 
+            height: 100px;
+            background-color: rgb(39, 39, 39);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            z-index: 1000;
+            color:red;
+        }
+        .header-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .menu-icon {
+            font-size: 24px;
+            color: red;
+            position: absolute;
+            right: 50px;
+            top: 32px;
+            cursor: pointer;
+        }
+        .gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 1000px;
+            margin-top: 40px;
+            margin-bottom: 50px;
+        }
+        .food-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background:pink;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .food-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .food-item img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .food-item img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .food-info {
+            max-width: 600px;
+        }
+        h1{
+            margin-top:120px;        }
+        h2 {
+            margin-bottom: 5px;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100vw; 
+            height: 60px;
+            background-color: rgb(39, 39, 39);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer-links {
+            display: flex;
+            gap: 60px;
+            margin-top: 15px;
+        }
+        .footer-links div {
+            display: flex;
+            flex-direction: column;
+        }
+        .footer-links a {
+            text-decoration: none;
+            color: red;
+        }
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-right: 100px;
+        }
+        .social-icons a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #ff0000;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="header-content">
+            <img src="download 3.png" alt="logo" width="275px" height="35px" style="margin-top: 30px;">
+            <p style="font-size: 22px; margin-top: 5px;">Turkey Cuisine</p>
+        </div>
+        <div class="menu-icon" id="menu-toggle">&#9776;</div>
+    </div>
+    <main>
+        <h1>Turkish Food Menu</h1>
+        <div class="gallery"> 
+            <a href="" style="color: black; text-decoration: none;"><div class="food-item">
+                <img src="Baklava(1).png" alt="Sushi">
+                <div class="food-info">
+                    <h2>Baklava</h2>
+                    <p>is a layered pastry dessert made of filo pastry, filled with chopped nuts, and sweetened with syrup or honey. It was one of the most popular sweet pastries of Ottoman cuisine.</p>
+                </div>
+            </div></a>
+            <a href="" style="color: black; text-decoration: none;"><div class="food-item">
+                <img src="dolma.jpg" alt="Onigiri">
+                <div class="food-info">
+                    <h2>dolma</h2>
+                    <p>Even after being boiled and stored in oil for god knows how long, the grape leaves have a subtle but lingering wine-like taste that muddles into the dill and mint scrap up.</p>
+                </div>
+            </div></a>
+            <a href="" style="color: black; text-decoration: none;"><div class="food-item">
+                <img src="download (3).jpg" alt="Taiyaki">
+                <div class="food-info">
+                    <h2>Turkish delight</h2>
+                    <p> it is called rāhat-ol-holqum (راحت الحلقوم). In the Indian subcontinent, a variant of it is known as Karachi halwa or Bombay halwa.</p>
+                </div>
+            <a href="" style="color: black; text-decoration: none;"><div class="food-item">
+                <img src="download.jpg" alt="Ramen">
+                <div class="food-info">
+                    <h2>Grilled chicken</h2>
+                    <p>chicken that's cooked over high heat on a grill, which gives it a smoky flavor and crispy skin</p>
+                </div>
+            </div></a>
+        </div>
+    </main>
+    <div class="footer">
+        <img src="images.png" alt="logo" width="250px" height="37.5px" style="margin-top: 12px;">
+        <div class="footer-links">
+            <div>
+                <a href="#">Order Tracking</a>
+                <a href="#">New Order</a>
+                <a href="#">Contact Us</a>
+                <a href="#">News & Blogs</a>
+            </div>
+            <div>
+                <a href="#">Help & Support</a>
+                <a href="#">About Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="#">&#xf09a;</a>
+            <a href="#">&#xf099;</a>
+            <a href="#">&#xf16d;</a>
+            <a href="#">&#xf167;</a>
+        </div>
+    </div>
+</body>
+</html>
