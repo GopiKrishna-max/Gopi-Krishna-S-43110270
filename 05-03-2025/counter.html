@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        background-color: aqua;
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .center{
+        background-color: blue;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        border-radius: 40px;
+        margin-top: 50%;-
+    }
+</style>
+<body>
+    <center>
+    <div class="center">
+        <h1>Counter</h1>
+        <p id="result">0</p>
+        <button onclick="sub()">-1</button>
+        <button onclick="add()">+1</button>
+        <button onclick="reset()">Reset</button>
+    </div>
+</center>
+    <script>
+        let count = 0 
+        function add(){
+            count =count + 1
+            render()
+            console.log(incresing')
+        }
+        function sub(){
+            count = count - 1
+            render()
+            console.log('decresing')
+
+        }
+        function reset(){
+            count = 0
+            render()
+            console.log('reset')
+        }
+        function render(){
+            document.getElementById('result').innerHTML = count
+        }
+
+
+    </script>
+</body>
+</html>
