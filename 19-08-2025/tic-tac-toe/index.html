@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color:#00c3ff;
+        }
+        .container {
+            text-align: center;
+            background: #2c2c2c;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            width:300px;
+        }
+        #status {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #00c3ff;
+            font-weight: bold;
+        }
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        td {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            font-size: 24px;
+            cursor: pointer;
+            border: 2px solid #00c3ff;
+            color: whitesmoke;
+            transition: background-color 0.3s ease-in-out;
+
+        }
+        td:hover {
+            background-color:#00c3ff30;
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color:#00c3ff;
+            color: whitesmoke;
+            border-radius: 5px;
+            margin-top:20px;
+            margin-bottom: 20px;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background-color: #008cb3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <H2 id="">Tic Tac Toe</H2>
+    <h2 id="status">Player X's Turn</h2>
+    <table>
+        <tr>
+            <td onclick="play(this, 0)" class="cell"></td>
+            <td onclick="play(this, 1)" class="cell"></td>
+            <td onclick="play(this, 2)" class="cell"></td>
+        </tr>
+        <tr>
+            <td onclick="play(this, 3)" class="cell"></td>
+            <td onclick="play(this, 4)" class="cell"></td>
+            <td onclick="play(this, 5)" class="cell"></td>
+        </tr>
+        <tr>
+            <td onclick="play(this, 6)" class="cell"></td>
+            <td onclick="play(this, 7)" class="cell"></td>
+            <td onclick="play(this, 8)" class="cell"></td>
+        </tr>
+    </table>
+    <button onclick="reset()">Reset</button>
+    <div>
+
+    <script>
+        let player = 'X'
+        const cells = document.getElementsByClassName('cell')
+        const status = document.getElementById('status')
+
+        function play(obj, i) {
+            if (obj.innerHTML === '') {
+                obj.innerHTML = player
+                if (checkWin(player)) {
+                    status.innerHTML = `${player} Wins!`
+                    setTimeout(reset, 1500)
+                    return
+                }
+                if (filled()) {
+                    status.innerHTML = "It's a Draw!"
+                    setTimeout(reset, 1500)
+                    return
+                }
+                player = (player === 'X') ? 'O' : 'X'
+                status.innerHTML = `Player ${player}'s Turn`
+            }
+        }
+
+        function checkWin(player) {
+            const winPatterns = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8], 
+                [0, 3, 6], [1, 4, 7], [2, 5, 8], 
+                [0, 4, 8], [2, 4, 6]            
+            ]
+
+            return winPatterns.some(pattern =>
+                pattern.every(index => cells[index].innerHTML === player)
+            )
+        }
+
+        function filled() {
+            return [...cells].every(cell => cell.innerHTML !== '')
+        }
+
+        function reset() {
+            for (let cell of cells) {
+                cell.innerHTML = ''
+            }
+            player = 'X'
+            status.innerHTML = `Player X's Turn`
+        }
+    </script>
+</body>
+</html>

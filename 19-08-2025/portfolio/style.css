@@ -1,0 +1,95 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+  
+  /* Navbar */
+  .navbar {
+    transition: all 0.4s ease;
+  }
+  .navbar.scrolled {
+    background-color: #000 !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  }
+  
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                url('images/hero-bg.jpg') center/cover no-repeat;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .hero h1 {
+    font-size: 3.5rem;
+    animation: fadeInDown 1s ease-in-out;
+  }
+  
+  .hero p {
+    font-size: 1.3rem;
+    animation: fadeInUp 1.2s ease-in-out;
+  }
+  
+  .hero .btn {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  
+  /* Animations */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Section Titles */
+  section h2 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+  }
+  section h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background: #ffc107;
+    margin: 0.5rem auto;
+    border-radius: 5px;
+  }
+  
+  /* Skills Section */
+  #skills i {
+    transition: transform 0.3s ease, color 0.3s ease;
+  }
+  #skills i:hover {
+    transform: scale(1.2);
+    color: #ffc107 !important;
+  }
+  
+  /* Projects */
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  }
+  
+  /* Contact */
+  #contact p i {
+    margin-right: 10px;
+    color: #ffc107;
+  }
+  

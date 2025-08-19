@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ROCK PAPER SCISSORS</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-success d-flex justify-content-center align-items-center vh-100">
+
+  <div class="container text-center">
+    <div class="card shadow-lg p-4 mx-auto" style="max-width: 400px; border-radius: 20px;">
+      <h3 class="mb-3">ROCK PAPER SCISSORS</h3>
+
+      
+      <div class="d-flex justify-content-center gap-3 flex-wrap mb-3">
+        <button class="btn btn-dark btn-lg rounded-circle" onclick="play('Rock')">✊</button>
+        <button class="btn btn-dark btn-lg rounded-circle" onclick="play('Paper')">✋</button>
+        <button class="btn btn-dark btn-lg rounded-circle" onclick="play('Scissors')">✌</button>
+      </div>
+
+      
+      <p id="game-result" class="fs-4 fw-bold">-</p>
+
+      
+      <table class="table table-bordered text-center">
+        <thead class="table-dark">
+          <tr>
+            <th>You</th>
+            <th>Computer</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span id="user-choice" class="fs-2">-</span></td>
+            <td><span id="computer-choice" class="fs-2">-</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      
+      <table class="table table-bordered text-center">
+        <tr>
+          <td id="wins">Wins: 0</td>
+          <td id="losses">Losses: 0</td>
+          <td id="ties">Ties: 0</td>
+        </tr>
+      </table>
+
+     
+      <button class="btn btn-dark w-100 mt-2" onclick="resetGame()">Reset</button>
+    </div>
+  </div>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    let wins = 0, losses = 0, ties = 0, matches = 0;
+
+    const emojiMap = {
+      "Rock": "✊",
+      "Paper": "✋",
+      "Scissors": "✌"
+    };
+
+    function play(userChoice) {
+      let compChoice = getRandom();
+      document.getElementById('user-choice').innerHTML = emojiMap[userChoice]; 
+      document.getElementById('computer-choice').innerHTML = emojiMap[compChoice]; 
+
+      let resultText = '';
+      if (
+        (userChoice === 'Rock' && compChoice === 'Scissors') || 
+        (userChoice === 'Paper' && compChoice === 'Rock') || 
+        (userChoice === 'Scissors' && compChoice === 'Paper')
+      ) {
+        resultText = 'You Win!';
+        wins++;
+      } else if (userChoice === compChoice) {
+        resultText = "It's a Tie!";
+        ties++;
+      } else {
+        resultText = 'You Lose!';
+        losses++;
+      }
+      
+      matches++;
+      
+      document.getElementById('game-result').innerHTML = resultText;
+      document.getElementById('wins').innerHTML = `Wins: ${wins}`;
+      document.getElementById('losses').innerHTML = `Losses: ${losses}`;
+      document.getElementById('ties').innerHTML = `Ties: ${ties}`;
+
+      if (matches === 5) {
+        setTimeout(() => {
+          if (wins > losses) {
+            alert('🏆 You win the match!');
+          } else if (losses > wins) {
+            alert('😞 You lost the match!');
+          } else {
+            alert('🤝 It\'s a tie!');
+          }
+          resetGame();
+        }, 300);
+      }
+    }
+
+    function resetGame() {
+      wins = 0;
+      losses = 0;
+      ties = 0;
+      matches = 0;
+
+      document.getElementById('wins').innerHTML = `Wins: ${wins}`;
+      document.getElementById('losses').innerHTML = `Losses: ${losses}`;
+      document.getElementById('ties').innerHTML = `Ties: ${ties}`;
+
+      document.getElementById('game-result').innerHTML = '-';
+      document.getElementById('user-choice').innerHTML = '-';
+      document.getElementById('computer-choice').innerHTML = '-';
+    }
+
+    function getRandom() {
+      let choices = ['Rock', 'Paper', 'Scissors'];
+      return choices[Math.floor(Math.random() * choices.length)];
+    }
+  </script>
+
+</body>
+</html>
