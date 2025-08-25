@@ -26,6 +26,4 @@ insert into product values (03,'oneplus 13R',2025);
 
 select * from product;
 
-delete from category where cid=2023;
-
 update category set cid=2025 where cid=2023;
