@@ -1,0 +1,80 @@
+CREATE DATABASE hcl;
+SHOW DATABASES;
+USE hcl;
+
+CREATE TABLE Worker (
+    WORKER_ID INT PRIMARY KEY,
+    FIRST_NAME VARCHAR(50) NOT NULL,
+    LAST_NAME VARCHAR(50) NOT NULL,
+    DEPARTMENT VARCHAR(50) NOT NULL,
+    SALARY DECIMAL(10,2) NOT NULL
+);
+
+INSERT INTO Worker VALUES
+(1, 'Rakesh', 'Sharma', 'Sales', 85000.00),
+(2, 'Meera', 'Nair', 'Accounts', 125000.00),
+(3, 'Suresh', 'Patel', 'Support', 99000.00),
+(4, 'Divya', 'Kapoor', 'Research', 110000.00),
+(5, 'Ajay', 'Mishra', 'Sales', 72000.00),
+(6, 'Neha', 'Gupta', 'Support', 115000.00),
+(7, 'Arvind', 'Singh', 'Operations', 93000.00),
+(8, 'Pooja', 'Rao', 'Accounts', 135000.00),
+(9,'vihan','sharma','sales',210000.00);
+
+SELECT * FROM Worker;
+
+SELECT * FROM Worker
+WHERE DEPARTMENT = 'Support' AND SALARY > 100000;
+
+SELECT * FROM Worker
+WHERE DEPARTMENT = 'Sales' OR SALARY < 80000;
+
+SELECT * FROM Worker
+WHERE NOT DEPARTMENT = 'Accounts';
+
+SELECT * FROM Worker
+WHERE SALARY > 90000 AND (DEPARTMENT = 'Support' OR DEPARTMENT = 'Accounts');
+
+SELECT * FROM Worker 
+WHERE WORKER_ID IN (1,3,5,8) AND SALARY >= 10000;
+
+SELECT * FROM Worker 
+WHERE DEPARTMENT NOT IN ('Sales','Accounts') AND SALARY BETWEEN 70000 AND 300000;
+
+SELECT * FROM Worker
+WHERE FIRST_NAME LIKE 'v%' AND SALARY >= 200000 OR SALARY = 200000;
+
+SELECT * FROM Worker
+WHERE DEPARTMENT NOT IN ('Support') AND SALARY < 100000;
+
+SELECT AVG(SALARY) AS Avg_Sales_Salary
+FROM Worker
+WHERE DEPARTMENT = 'Sales';
+
+SELECT SUM(SALARY) AS Total_Acc_Support_Salary
+FROM Worker
+WHERE DEPARTMENT IN ('Accounts', 'Support');
+
+SELECT SUM(SALARY) AS Total_Acc_Support_Salary
+FROM Worker
+WHERE DEPARTMENT IN ('Accounts', 'Support');
+
+SELECT COUNT(*) AS Count_V
+FROM Worker
+WHERE FIRST_NAME LIKE 'V%';
+
+SELECT SUM(SALARY) AS Total_Salary_Range
+FROM Worker
+WHERE SALARY BETWEEN 50000 AND 200000;
+
+SELECT FIRST_NAME FROM Worker
+UNION 
+SELECT LAST_NAME FROM Worker;
+
+SELECT FIRST_NAME, SALARY,
+CASE 
+    WHEN SALARY < 60000 THEN 'poor'
+    WHEN SALARY BETWEEN 60000 AND 170000 THEN 'middle class'
+    ELSE 'rich'
+END AS StatusBasedOnSalary
+FROM Worker;
