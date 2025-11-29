@@ -5,20 +5,18 @@
   width: 90%;
   margin: 50px auto;
 }
-
 .grid-item {
-  background-color: #6EB5FF; /* soft blue */
-  color: #ffffff;
+  background-color: #AEC6CF;
+  color: #333;
   padding: 20px;
   border-radius: 5px;
   min-height: 100px;
   text-align: center;
   font-size: 1.5em;
 }
-
 .span-item {
-  background-color: red; /* deep blue */
+  background-color: #FF6961;
   grid-column: 1 / 4;
   font-weight: bold;
-  color: #ffffff;
+  color: white;
 }
